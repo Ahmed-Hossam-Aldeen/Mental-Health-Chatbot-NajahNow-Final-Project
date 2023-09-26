@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+    <!-- Start Contact -->
+    <div class="contact">
+        <div class="container">
+            <div class="special-heading">
+                <h2>تواصل معنا</h2>
+                <p>
+                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris 
+                    blandit aliquet elit, eget tincidunt.
+                </p>
+            </div>
+            <div class="content">
+                <form action="https://formsubmit.co/mohammedhany55555@gmail.com" method="POST">
+                    <input class="main-input" type="text" name="name" placeholder="الاسم" required>
+                    <input type="hidden" name="_next" value="https://mohammedhany1.github.io/Salam-Chatbot/">
+                    <input class="main-input" type="email" name="email" placeholder="الايميل" required>
+                    <textarea class="main-input" name="message" placeholder="اكتب رسالتك هنا ..."></textarea>
+                    <input type="submit" class="btn-chat" value="ارسل الرسالة">
+                </form>
+                <div class="info">
+                    <h4>Get In Touch</h4>
+                    <span class="phone">+00 123.456.789</span>
+                    <span class="phone">+00 123.456.789</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact -->
+</body>
+</html>
+   
+{% endblock content %}

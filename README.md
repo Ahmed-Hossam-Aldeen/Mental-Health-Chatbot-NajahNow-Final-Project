@@ -1,1 +1,3 @@
-# Mental-Health-Chatbot-NajahNow-Final-Project
+install RASA 
+install Django 
+وبس كده يا سيدي

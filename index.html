@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <script>!(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src =
+          "http://localhost:8000/index.js"), // Replace with the correct local path to your Rasa Webchat script
+          (e.async = true),
+          (e.onload = () => {
+            
+            window.WebChat.default(
+              {
+                initPayload: '/get_started',
+                customData: { language: "ar" },
+                socketUrl: "http://localhost:5005",
+                // add other props here
+              },
+              null
+            );
+          }),
+          t.insertBefore(e, t.firstChild);
+          window.localStorage.clear()
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+chatroom/.cache
+chatroom/dist
+chatroom/node_modules
+chatroom/yarn-error.log
+chatroom/__pycache__
+chatroom/.vscode
+venv
+models
+.rasa
+.rasa/*

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body onload="myFunction()">
+    <!-- Start Signup -->
+        <div class="login-landing">
+            <div class="container">
+                <div class="info-container">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{form.name}}                    
+                        {{form.email}}<br>
+                        {{form.passwrd}}<br>
+                        {{form.age}}<br>
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        {{ error|escape }}
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        {{ error|escape }}
+                        {% endfor %}
+                        {% endif %}
+                        <input type="submit" value="التسجيل">
+                    </form>
+                    <div class="text-container">
+                       <a href="login">هل لديك حساب بالفعل</a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End Signup -->
+    <script>
+        function myFunction() {
+            document.getElementsByName('name')[0].value="";
+            document.getElementsByName('name')[0].placeholder="اسم المستخدم";
+            document.getElementsByName('email')[0].value="";
+            document.getElementsByName('email')[0].placeholder="الايميل";
+            document.getElementsByName('passwrd')[0].value="";
+            document.getElementsByName('passwrd')[0].placeholder="كلمة المرور";
+            document.getElementsByName('age')[0].value="";
+            document.getElementsByName('age')[0].placeholder="العمر";
+        }
+    </script>
+</body>
+</html>
+{% endblock content %}
+   

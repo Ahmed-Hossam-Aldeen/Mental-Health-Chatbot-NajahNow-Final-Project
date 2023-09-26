@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <!-- Start Login -->
+        <div class="login-landing">
+            <div class="container">
+                <div class="info-container">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="email" placeholder="الايميل" id="email" required>
+                        <input type="password" name="password" placeholder="كلمة المرور" id="password" required>
+                        {% for message in messages %}
+                        {{message}}
+                        {% endfor %} <br>
+                        <input type="submit" value="سجل الدخول">
+                    </form>
+                    <div class="text-container">
+                        <p>هل تريد   <a href="signup">انشاء حساب</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End Login -->
+</body>
+</html>
+   
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<html lang="ar">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Chatroom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>Chatroom</title>
+    <!-- Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+  </head>
+  <body>
+    <!-- <input type="submit" class="btn fa fa-input test" value="&#xf043;"> -->
+    </style>
+      <div class="chat">
+        <div class="chat-container"></div>
+      </div>
+      <!-- <form method="POST">
+        {% csrf_token %}
+        {{form.messege}}                    
+        {% if form.errors %}
+        {% for field in form %}
+        {% for error in field.errors %}
+        {{ error|escape }}
+        {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+        {{ error|escape }}
+        {% endfor %}
+        {% endif %}
+        <input type="submit" value="التسجيل">
+    </form> -->
+    <script src="{% static 'dist/Chatroom.js' %}"></script>
+    <script type="text/javascript">
+window.chatroom = new window.Chatroom({
+  title: "Salam V1",
+  container: document.querySelector(".chat-container"),
+  welcomeMessage: "السلام عليكم أنا سلام🤗 ,  اسمك ايه؟",
+  //host: "https://0.0.0.0:5005",
+  host: "https://rasa-server-youseefmoemen.cloud.okteto.net",
+});
+window.chatroom.openChat();
+document.getElementsByClassName("input")[0].getElementsByTagName('input')[1].value="ارسل"
+
+// document.getElementsByClassName("input")[0].getElementsByTagName('input')[1].classList.add("btn","fa", "fa-input")
+// document.getElementsByClassName("input")[0].getElementsByTagName('input')[1].classList.style="font-weight: 900;"
+document.getElementsByClassName("input")[0].getElementsByTagName('input')[1].addEventListener("click", function(){
+  var audio = new Audio("{% static 'sounds/message sent.wav' %}");
+  audio.play();
+  document.getElementsByClassName("input")[0].getElementsByTagName('input')[1].value="ارسل"
+});
+// var tag = document.createElement("input");
+// tag.classList.add("fa","btn", " fa-input");
+// tag.value='&#xf043 Input'
+// tag.style="font-family: FontAwesome, 'Helvetica Neue', Helvetica, Arial, sans-serif;"
+// var element = document.getElementsByClassName("input")[0].getElementsByTagName('input')[1];
+// element.appendChild(tag);
+//   arr = document.getElementsByClassName("chat right")
+//   length = document.getElementsByClassName("chat right").length
+//   console.log(length)
+//   text = ""
+//   text2 = ""
+//   for (let i = 0; i < length; i++) {
+//       text = ""
+//       text = arr[i].innerText
+//       text2 += "\n محادثة جديدة \n"+text
+//   }
+//   console.log(text2)
+// });
+// function myFunction() {
+//   $('#messege').val(text2)
+//   }
+// </script>
+  </body>
+</html>
+{% endblock content %}

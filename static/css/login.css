@@ -1,0 +1,76 @@
+/* Start Login */
+.login-landing {
+    height: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(42,78,130,1) 35%, rgba(96,187,232,1) 100%);   
+}
+.login-landing .container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.login-landing .container .info-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.834);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+@media (max-width: 991px) {
+    .login-landing .container .info-container {
+        width: 60%;
+    }
+}
+@media (max-width: 767px) {
+    .login-landing .container .info-container {
+        width: 80%;
+    }
+}
+.login-landing .container .info-container form {
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 25px;
+}
+.login-landing .container .info-container form input[type=text],
+.login-landing .container .info-container form input[type=password],
+.login-landing .container .info-container form input[type=number],
+.login-landing .container .info-container form input[type=email]  {
+    width: 80%;
+    padding: 15px 25px;
+    background-color: white;
+    outline: none;
+    border: 2px solid var(--main-color);
+}
+.login-landing .container .info-container form input[type=text]:focus,
+.login-landing .container .info-container form input[type=password]:focus,
+.login-landing .container .info-container form input[type=number]:focus,
+.login-landing .container .info-container form input[type=email]:focus {
+    border: 2px solid var(--second-color);
+}
+.login-landing .container .info-container form input[type=submit] {
+    color: white;
+    padding: 20px;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    cursor: pointer;    
+    background-color: var(--second-color);
+    position: relative;
+}
+/* End Login */
+/* Start Footer */
+footer {
+    margin-top: 0;
+}
+/* End Footer */

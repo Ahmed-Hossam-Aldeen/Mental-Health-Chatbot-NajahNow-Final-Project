@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <!-- Start Landing -->
+    <div class="landing">
+        <div class="container">
+            <div class="landing-container">
+                <div class="text-container">
+                    <div class="content">
+                        <p>
+                            مرحبا بكم فى سلام
+                            <br>
+                            سلام هو برنامج محادثات مخصص لتقديم الدعم النفسي من أجل تحسين الصحة النفسية للمتحدثين باللغة العربية في كافة أنحاء العالم 🤗
+                        </p>
+                    <div class="btn-chat">
+                        <a href="index">
+                            ابدأ الدردشة مع سلام
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="img-container">
+                    <img src="{% static 'images/hello.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Landing -->
+    <!-- Start Chatbot -->
+    <div class="chatbot">
+        <div class="container">
+            <div class="special-heading">
+                <h2>سلام</h2>
+            </div>
+            <div class="chatbot-container">
+                <p>
+                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris 
+                    blandit aliquet elit, eget tincidunt.
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Chatbot -->
+    <!-- Start Us -->
+    <div class="us">
+        <div class="special-heading">
+            <h2>من نحن</h2>
+        </div>
+        <div class="person-container">
+            <div class="person">
+                <div class="image-container">
+                    <img src="{% static 'images/dr mohamed.jpg' %}" alt="">
+                </div>
+                <div class="text-container">
+                    <h2>دكتور محمد الرملي</h2>
+                    <p>Lorem ipsum dolor sit amet
+                         consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="person">
+                <div class="image-container">
+                    <img src="{% static 'images/youssef.jpg' %}" alt="">
+                </div>
+                <div class="text-container">
+                    <h2>يوسف مؤمن</h2>
+                    <p>Lorem ipsum dolor sit amet
+                         consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="person">
+                <div class="image-container">
+                    <img src="{% static 'images/nedal.jpg' %}" alt="">
+                </div>
+                <div class="text-container">
+                    <h2>نضال ادهم</h2>
+                    <p>Lorem ipsum dolor sit amet
+                         consectetur adipisicing elit.</p>
+                </div>
+            </div>
+            <div class="person">
+                <div class="image-container">
+                    <img src="{% static 'images/paula.jpg' %}" alt="">
+                </div>
+                <div class="text-container">
+                    <h2>بولا عادل</h2>
+                    <p>Lorem ipsum dolor sit amet
+                         consectetur adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Us -->
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,364 @@
+version: "3.1"
+
+stories:
+- story: Ask about mental health
+  steps:
+    - intent: ask_about_mental_health
+    - action: utter_ask_about_mental_health
+
+- story: Ask for coping skills
+  steps:
+    - intent: ask_coping_skills
+    - action: utter_ask_coping_skills
+
+- story: Ask for professional help
+  steps:
+    - intent: ask_professional_help
+    - action: utter_ask_professional_help
+
+- story: Express concern for someone
+  steps:
+    - intent: express_concern_for_someone
+    - action: utter_ask_express_concern_for_someone
+
+- story: Inquire about mental health resources
+  steps:
+    - intent: inquire_about_mental_health_resources
+    - action: utter_ask_inquire_about_mental_health_resources
+######################################################################
+- story: welcome_message_depression
+  steps:
+  - intent: get_started
+  - action: utter_welcome_message
+  - action: utter_ask_name
+  
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: sad_chat
+  - action: utter_sympathise
+  - action: utter_ask_why
+  - intent: sad_chat
+  - action: utter_ask_more
+  - intent: sad_chat
+  - action: action_call_classifier_api
+  - slot_was_set:
+      - sentiment_1: "depression"
+
+  - action: utter_propose_test
+  - intent: affirm
+  - checkpoint: toPHQ
+
+- story: welcome_message_depression_deny_then_affirm
+  steps:
+  - intent: get_started
+  - action: utter_welcome_message
+  - action: utter_ask_name
+  
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: sad_chat
+  - action: utter_sympathise
+  - action: utter_ask_why
+  - intent: sad_chat
+  - action: utter_ask_more
+  - intent: sad_chat
+  - action: action_call_classifier_api
+  - slot_was_set:
+      - sentiment_1: "depression"
+
+  - action: utter_propose_test
+  - intent: deny
+  - action: utter_convince
+  - intent: affirm
+  - checkpoint: toPHQ
+
+- story: welcome_message_depression_deny
+  steps:
+  - intent: get_started
+  - action: utter_welcome_message
+  - action: utter_ask_name
+  
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: sad_chat
+  - action: utter_sympathise
+  - action: utter_ask_why
+  - intent: sad_chat
+  - action: utter_ask_more
+  - intent: sad_chat
+  - action: action_call_classifier_api
+  - slot_was_set:
+      - sentiment_1: "depression"
+
+  - action: utter_propose_test
+  - intent: deny
+  - action: utter_convince
+  - intent: deny
+  - action: utter_propose_help_after_deny
+
+- story: welcome_message_anxiety
+  steps:
+  - intent: get_started
+  - action: utter_welcome_message
+  - action: utter_ask_name
+  
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: sad_chat
+  - action: utter_sympathise
+  - action: utter_ask_why
+  - intent: sad_chat
+  - action: utter_ask_more
+  - intent: sad_chat
+  - action: action_call_classifier_api
+  - slot_was_set:
+      - sentiment_1: "anxiety"
+
+  - action: utter_propose_test
+  - intent: affirm
+  - checkpoint: toGAD
+
+
+story: welcome_message_anxiety_denyThen_affirm
+steps:
+- intent: get_started
+- action: utter_welcome_message
+- action: utter_ask_name
+
+- intent: introduce
+  entities:
+  - name: يوسف
+  - name: يوسف
+- slot_was_set:
+  - name: يوسف
+- action: utter_greet
+- action: utter_ask_mood
+- intent: sad_chat
+- action: utter_sympathise
+- action: utter_ask_why
+- intent: sad_chat
+- action: utter_ask_more
+- intent: sad_chat
+- action: action_call_classifier_api
+- slot_was_set:
+    - sentiment_1: "anxiety"
+
+- action: utter_propose_test
+- intent: deny
+- action: utter_convince
+- intent: affirm
+- checkpoint: toGAD
+
+
+
+# - story: sad_path_depression
+#   steps:
+#   # - intent: get_started
+#   # - action: utter_welcome_message
+#   # - action: utter_ask_name
+#   - intent: introduce
+#     entities:
+#     - name: يوسف
+#     - name: يوسف
+#   - slot_was_set:
+#     - name: يوسف
+#   - action: utter_greet
+#   - action: utter_ask_mood
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_ask_why
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_ask_more
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_propose_test
+#   - intent: affirm
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: AfterP4
+#   - slot_was_set:
+#     - PHQ9_applicable: true
+# #  - action: show
+#   - checkpoint: toPHQ
+
+# - story: sad_path_anxiety
+#   steps:
+#   - intent: introduce
+#     entities:
+#     - name: يوسف
+#     - name: يوسف
+#   - slot_was_set:
+#     - name: يوسف
+#   - action: utter_greet
+#   - action: utter_ask_mood
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_ask_why
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_ask_more
+#   - intent: sad_chat
+#   - action: utter_sympathise
+#   - action: utter_propose_test
+#   - intent: affirm
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: PHQ4Test
+#   - intent: testResponse
+#   - action: PHQ4Scorer
+# #  - action: show
+#   - action: AfterP4
+#   - slot_was_set:
+#     - GAD7_applicable: true
+# #  - action: show
+#   - checkpoint: toGAD
+
+
+
+- story: PHQ9_maker
+  steps:
+    -  checkpoint: toPHQ
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+    -  action: PHQ9Test
+    -  intent: testResponse
+    -  action: PHQ9Scorer
+#    -  action: show
+    -  action: tip
+
+- story: GAD7_maker
+  steps:
+    -  checkpoint: toGAD
+    -  action: GAD7Test
+    -  intent: testResponse
+    -  action: GAD7Scorer
+    -  action: GAD7Test
+    -  intent: testResponse
+    -  action: GAD7Scorer
+    -  action: GAD7Test
+    -  intent: testResponse
+    -  action: GAD7Scorer
+    -  action: GAD7Test
+    -  intent: testResponse
+    -  action: GAD7Scorer
+    -  action: GAD7Test
+    -  intent: testResponse
+    -  action: GAD7Scorer
+    -  action: tip
+    -  action: utter_goodbye
+
+
+
+- story: happy_path
+  steps:
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: happy_chat
+  - action: utter_ask_why
+  - intent: happy_chat
+  - action: utter_ask_more
+  - intent: happy_chat
+  - action: utter_happy_tip
+  - action: utter_did_that_help
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: introduce
+    entities:
+    - name: يوسف
+    - name: يوسف
+  - slot_was_set:
+    - name: يوسف
+  - action: utter_greet
+  - action: utter_ask_mood
+  - intent: happy_chat
+  - action: utter_ask_why
+  - intent: happy_chat
+  - action: utter_ask_more
+  - intent: happy_chat
+  - action: utter_happy_tip
+  - action: utter_did_that_help
+  - action: utter_goodbye
+
+
+#  - action: Tip
+#  - action: CPT
+#  - action: helped
+#  - action: PHQ4Test Could be done overtime
+# TODO 1: Expand Stories to tests
+# TODO 2: Expand Data
+# TODO 3: Store Conversation
+# TODO 4: improve over time
+# TODO 5: Online Deployment with DP
